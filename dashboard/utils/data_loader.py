@@ -89,8 +89,7 @@ def load_companies_dataframe(
             orders_count,
             orders_count_median,
             orders_count_mean,
-            primary_shooting_type,
-            url
+            primary_shooting_type
         FROM bitrix_companies
         WHERE orders_count > 0
     """
@@ -243,8 +242,7 @@ def search_companies(query: str, limit: int = 50) -> pd.DataFrame:
             ltv,
             segment,
             orders_count,
-            primary_shooting_type,
-            url
+            primary_shooting_type
         FROM bitrix_companies
         WHERE orders_count > 0
           AND (title_normalized LIKE :query OR title LIKE :query)

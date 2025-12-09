@@ -64,13 +64,11 @@ try:
             title='Тренд выручки и количества сделок по годам',
             xaxis_title='Год',
             yaxis=dict(
-                title='Выручка (₽)',
-                titlefont=dict(color='#4ECDC4'),
+                title=dict(text='Выручка (₽)', font=dict(color='#4ECDC4')),
                 tickfont=dict(color='#4ECDC4')
             ),
             yaxis2=dict(
-                title='Количество сделок',
-                titlefont=dict(color='#FF6B6B'),
+                title=dict(text='Количество сделок', font=dict(color='#FF6B6B')),
                 tickfont=dict(color='#FF6B6B'),
                 overlaying='y',
                 side='right'

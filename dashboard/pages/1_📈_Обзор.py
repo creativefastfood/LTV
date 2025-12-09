@@ -237,12 +237,8 @@ try:
         'Заказов',
         'Медиана в год',
         'Среднее в год',
-        'Тип съёмки',
-        'URL'
+        'Тип съёмки'
     ]
-
-    # Убираем URL из отображения
-    top_df_display = top_df_display.drop(columns=['URL'])
 
     st.dataframe(
         top_df_display,
