@@ -85,7 +85,7 @@ try:
             )
         )
 
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
         # Статистика по годам
         col1, col2, col3, col4 = st.columns(4)
@@ -173,7 +173,7 @@ try:
                 hovermode='x unified'
             )
 
-            st.plotly_chart(fig_monthly, use_container_width=True)
+            st.plotly_chart(fig_monthly, width="stretch")
 
             # Статистика по месяцам
             col1, col2, col3 = st.columns(3)
@@ -245,7 +245,7 @@ try:
                 fig_season_revenue.update_traces(
                     hovertemplate='<b>%{x}</b><br>Средняя выручка: %{y:,.0f} ₽<extra></extra>'
                 )
-                st.plotly_chart(fig_season_revenue, use_container_width=True)
+                st.plotly_chart(fig_season_revenue, width="stretch")
 
             with col2:
                 # График сезонности количества сделок
@@ -261,7 +261,7 @@ try:
                 fig_season_deals.update_traces(
                     hovertemplate='<b>%{x}</b><br>Среднее сделок: %{y:.1f}<extra></extra>'
                 )
-                st.plotly_chart(fig_season_deals, use_container_width=True)
+                st.plotly_chart(fig_season_deals, width="stretch")
 
             # Топ-3 и низ-3 месяца
             col1, col2 = st.columns(2)
@@ -271,14 +271,14 @@ try:
                 top_3_months = seasonality.nlargest(3, 'revenue')[['month_name', 'revenue']]
                 top_3_months['revenue'] = top_3_months['revenue'].apply(lambda x: f"{x:,.0f} ₽")
                 top_3_months.columns = ['Месяц', 'Средняя выручка']
-                st.dataframe(top_3_months, use_container_width=True, hide_index=True)
+                st.dataframe(top_3_months, width="stretch", hide_index=True)
 
             with col2:
                 st.markdown("#### 📉 Низ-3 месяца (по выручке)")
                 bottom_3_months = seasonality.nsmallest(3, 'revenue')[['month_name', 'revenue']]
                 bottom_3_months['revenue'] = bottom_3_months['revenue'].apply(lambda x: f"{x:,.0f} ₽")
                 bottom_3_months.columns = ['Месяц', 'Средняя выручка']
-                st.dataframe(bottom_3_months, use_container_width=True, hide_index=True)
+                st.dataframe(bottom_3_months, width="stretch", hide_index=True)
 
         else:
             st.warning("⚠️ Нет данных для помесячного анализа (возможно, недостаточно данных за последние 24 месяца)")
@@ -388,7 +388,7 @@ try:
             hovermode='x unified'
         )
 
-        st.plotly_chart(fig_forecast, use_container_width=True)
+        st.plotly_chart(fig_forecast, width="stretch")
 
         st.warning("⚠️ **Примечание**: Этот прогноз является упрощённым и служит для ориентировочной оценки. Для точного планирования рекомендуется использовать более сложные модели с учётом сезонности, маркетинговых активностей и экономической ситуации.")
 

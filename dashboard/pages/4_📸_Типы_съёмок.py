@@ -96,7 +96,7 @@ try:
             textposition='outside',
             hovertemplate='<b>%{y}</b><br>Клиентов: %{x:,}<extra></extra>'
         )
-        st.plotly_chart(fig_top, use_container_width=True)
+        st.plotly_chart(fig_top, width="stretch")
 
     with col2:
         st.markdown("#### 📋 Топ-5 детально")
@@ -107,7 +107,7 @@ try:
         top_5.columns = ['Тип съёмки', 'Клиентов', 'Total LTV', 'Средний LTV', 'Заказов', '%']
         st.dataframe(
             top_5[['Тип съёмки', 'Клиентов', '%']],
-            use_container_width=True,
+            width="stretch",
             hide_index=True,
             height=250
         )
@@ -139,7 +139,7 @@ try:
         textposition='outside',
         hovertemplate='<b>%{y}</b><br>Средний LTV: %{x:,.0f} ₽<extra></extra>'
     )
-    st.plotly_chart(fig_avg_ltv, use_container_width=True)
+    st.plotly_chart(fig_avg_ltv, width="stretch")
 
     st.divider()
 
@@ -168,7 +168,7 @@ try:
         textposition='outside',
         hovertemplate='<b>%{y}</b><br>Заказов: %{x:,}<extra></extra>'
     )
-    st.plotly_chart(fig_orders, use_container_width=True)
+    st.plotly_chart(fig_orders, width="stretch")
 
     st.divider()
 
@@ -211,7 +211,7 @@ try:
 
     st.dataframe(
         display_stats,
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
         height=600
     )
@@ -280,7 +280,7 @@ try:
                     textinfo='percent+label+value',
                     hovertemplate='<b>%{label}</b><br>Клиентов: %{value}<br>Процент: %{percent}<extra></extra>'
                 )
-                st.plotly_chart(fig_pie, use_container_width=True)
+                st.plotly_chart(fig_pie, width="stretch")
 
             with col2:
                 # Таблица статистики
@@ -290,7 +290,7 @@ try:
                 display_segments['avg_ltv'] = display_segments['avg_ltv'].apply(lambda x: f"{x:,.0f} ₽")
                 display_segments['total_orders'] = display_segments['total_orders'].apply(lambda x: f"{x:,}")
                 display_segments.columns = ['Сегмент', 'Клиентов', 'Средний LTV', 'Всего заказов']
-                st.dataframe(display_segments, use_container_width=True, hide_index=True, height=250)
+                st.dataframe(display_segments, width="stretch", hide_index=True, height=250)
 
                 # Итого
                 st.metric(

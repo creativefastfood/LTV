@@ -190,7 +190,7 @@ try:
         # Отображаем таблицу
         st.dataframe(
             df_display,
-            use_container_width=True,
+            width="stretch",
             hide_index=True,
             height=600,
             column_config={

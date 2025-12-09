@@ -62,7 +62,7 @@ try:
             '% от всех'
         ]
 
-        st.dataframe(display_stats, use_container_width=True, hide_index=True, height=250)
+        st.dataframe(display_stats, width="stretch", hide_index=True, height=250)
 
     with col2:
         st.markdown("#### 📝 Критерии сегментации")
@@ -113,7 +113,7 @@ try:
         fig_avg_ltv.update_traces(
             hovertemplate='<b>%{x}</b><br>Средний LTV: %{y:,.0f} ₽<extra></extra>'
         )
-        st.plotly_chart(fig_avg_ltv, use_container_width=True)
+        st.plotly_chart(fig_avg_ltv, width="stretch")
 
     with col2:
         # Барчарт: Среднее заказов в год по сегментам
@@ -134,7 +134,7 @@ try:
         fig_avg_mean.update_traces(
             hovertemplate='<b>%{x}</b><br>Среднее заказов в год: %{y:.1f}<extra></extra>'
         )
-        st.plotly_chart(fig_avg_mean, use_container_width=True)
+        st.plotly_chart(fig_avg_mean, width="stretch")
 
     # Барчарт: Total LTV по сегментам (на всю ширину)
     fig_total_ltv = px.bar(
@@ -154,7 +154,7 @@ try:
     fig_total_ltv.update_traces(
         hovertemplate='<b>%{x}</b><br>Total LTV: %{y:,.0f} ₽<extra></extra>'
     )
-    st.plotly_chart(fig_total_ltv, use_container_width=True)
+    st.plotly_chart(fig_total_ltv, width="stretch")
 
     st.divider()
 
@@ -211,7 +211,7 @@ try:
                     fig.update_traces(
                         hovertemplate='<b>%{y}</b><br>Клиентов: %{x}<extra></extra>'
                     )
-                    st.plotly_chart(fig, use_container_width=True)
+                    st.plotly_chart(fig, width="stretch")
 
                 with col2:
                     st.markdown("#### 📊 Статистика")
@@ -247,7 +247,7 @@ try:
             st.metric("Клиентов на грани", len(df_c_to_b))
             st.dataframe(
                 df_c_to_b[['title', 'ltv', 'orders_count']].head(10),
-                use_container_width=True,
+                width="stretch",
                 hide_index=True,
                 column_config={
                     'title': 'Компания',
@@ -266,7 +266,7 @@ try:
             st.metric("Клиентов на грани", len(df_b_to_a))
             st.dataframe(
                 df_b_to_a[['title', 'ltv', 'orders_count']].head(10),
-                use_container_width=True,
+                width="stretch",
                 hide_index=True,
                 column_config={
                     'title': 'Компания',
@@ -285,7 +285,7 @@ try:
             st.metric("Клиентов на грани", len(df_u_to_c))
             st.dataframe(
                 df_u_to_c[['title', 'ltv', 'orders_count']].head(10),
-                use_container_width=True,
+                width="stretch",
                 hide_index=True,
                 column_config={
                     'title': 'Компания',

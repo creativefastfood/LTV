@@ -100,7 +100,7 @@ try:
             textinfo='percent+label+value',
             hovertemplate='<b>%{label}</b><br>Клиентов: %{value}<br>Процент: %{percent}<extra></extra>'
         )
-        st.plotly_chart(fig_segments, use_container_width=True)
+        st.plotly_chart(fig_segments, width="stretch")
 
     with col_right:
         # Таблица со статистикой по сегментам
@@ -123,7 +123,7 @@ try:
             'Среднее в год'
         ]
 
-        st.dataframe(segment_table, use_container_width=True, hide_index=True)
+        st.dataframe(segment_table, width="stretch", hide_index=True)
 
         st.info("""
         **Сегменты:**
@@ -161,7 +161,7 @@ try:
     fig_shooting.update_traces(
         hovertemplate='<b>%{y}</b><br>Клиентов: %{x}<extra></extra>'
     )
-    st.plotly_chart(fig_shooting, use_container_width=True)
+    st.plotly_chart(fig_shooting, width="stretch")
 
     # Дополнительная статистика по съёмкам
     col1, col2 = st.columns(2)
@@ -187,7 +187,7 @@ try:
         fig_avg_ltv.update_traces(
             hovertemplate='<b>%{y}</b><br>Средний LTV: %{x:,.0f} ₽<extra></extra>'
         )
-        st.plotly_chart(fig_avg_ltv, use_container_width=True)
+        st.plotly_chart(fig_avg_ltv, width="stretch")
 
     with col2:
         st.markdown("#### 📦 Всего заказов по типу съёмки")
@@ -210,7 +210,7 @@ try:
         fig_orders.update_traces(
             hovertemplate='<b>%{y}</b><br>Заказов: %{x}<extra></extra>'
         )
-        st.plotly_chart(fig_orders, use_container_width=True)
+        st.plotly_chart(fig_orders, width="stretch")
 
     st.divider()
 
@@ -246,7 +246,7 @@ try:
 
     st.dataframe(
         top_df_display,
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
         column_config={
             "Сегмент": st.column_config.TextColumn(
@@ -287,7 +287,7 @@ try:
             hovermode='x unified'
         )
 
-        st.plotly_chart(fig_trend, use_container_width=True)
+        st.plotly_chart(fig_trend, width="stretch")
 
         # Дополнительная статистика
         col1, col2, col3 = st.columns(3)
