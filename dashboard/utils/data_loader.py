@@ -13,6 +13,17 @@ import json
 DB_PATH = Path(__file__).parent.parent.parent / "platrum.db"
 DATABASE_URL = f"sqlite:///{DB_PATH}"
 
+# Проверка наличия базы данных
+if not DB_PATH.exists():
+    print("⚠️ База данных не найдена. Создаю демо-данные...")
+    try:
+        from .demo_data import create_demo_database
+        create_demo_database(str(DB_PATH))
+        print("✅ Демо-данные созданы успешно!")
+    except Exception as e:
+        print(f"❌ Ошибка при создании демо-данных: {e}")
+        raise
+
 # Создаём engine для SQLAlchemy
 engine = create_engine(DATABASE_URL)
 
